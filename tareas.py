@@ -1,10 +1,10 @@
-# Importamos la librería datetime para manejar fechas
+# Importamos la librería datetime para manejar fechas.
 from datetime import datetime
 
-# Definimos la estructura de datos para almacenar las tareas
+# Definimos la estructura de datos para almacenar las tareas.
 tareas = []
 
-# Función para agregar una nueva tarea
+# Función para agregar una nueva tarea.
 def agregar_tarea():
     descripcion = input("Ingrese la descripción de la tarea: ")
     fecha_limite = input("Ingrese la fecha límite (formato YYYY-MM-DD): ")
@@ -15,7 +15,7 @@ def agregar_tarea():
     }
     tareas.append(tarea)
 
-# Función para listar todas las tareas
+# Función para listar todas las tareas.
 def listar_tareas():
     for tarea in tareas:
         print(f"ID: {tareas.index(tarea)}")
@@ -24,12 +24,12 @@ def listar_tareas():
         print(f"Estado: {tarea['estado']}")
         print("---")
 
-# Función para completar una tarea
+# Función para completar una tarea.
 def completar_tarea():
     id_tarea = int(input("Ingrese el ID de la tarea a completar: "))
     tareas[id_tarea]["estado"] = "completada"
 
-# Función para eliminar una tarea
+# Función para eliminar una tarea.
 def eliminar_tarea():
     id_tarea = int(input("Ingrese el ID de la tarea a eliminar: "))
     del tareas[id_tarea]
