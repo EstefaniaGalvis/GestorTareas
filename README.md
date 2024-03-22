@@ -17,7 +17,7 @@ Crea un archivo tareas.py que contendrá la lógica del sistema.
 
 3. Código Python:
 
-...
+... Código.
 
 ## Tareas:
 Agregar tareas:
