@@ -34,6 +34,22 @@ def eliminar_tarea():
     id_tarea = int(input("Ingrese el ID de la tarea a eliminar: "))
     del tareas[id_tarea]
 
+# Función para editar una tarea.
+def editar_tarea():
+    id_tarea = int(input("Ingrese el ID de la tarea a editar: "))
+    tarea = tareas[id_tarea]
+    print(f"Tarea actual: {tarea['descripcion']} - Fecha límite: {tarea['fecha_limite'].strftime('%Y-%m-%d')} - Estado: {tarea['estado']}")
+    nueva_descripcion = input("Ingrese la nueva descripción de la tarea (deje en blanco para mantener la actual): ")
+    nueva_fecha_limite = input("Ingrese la nueva fecha límite (formato YYYY-MM-DD) (deje en blanco para mantener la actual): ")
+    nuevo_estado = input("Ingrese el nuevo estado (pendiente/completada) (deje en blanco para mantener el actual): ")
+
+    if nueva_descripcion:
+        tarea['descripcion'] = nueva_descripcion
+    if nueva_fecha_limite:
+        tarea['fecha_limite'] = datetime.strptime(nueva_fecha_limite, "%Y-%m-%d")
+    if nuevo_estado:
+        tarea['estado'] = nuevo_estado
+
 # Menú principal
 while True:
     print("**Sistema de gestión de tareas**")
@@ -41,7 +57,8 @@ while True:
     print("2. Listar tareas")
     print("3. Completar tarea")
     print("4. Eliminar tarea")
-    print("5. Salir")
+    print("5. Editar tarea")
+    print("6. Salir")
 
     opcion = int(input("Seleccione una opción: "))
 
@@ -54,8 +71,13 @@ while True:
     elif opcion == 4:
         eliminar_tarea()
     elif opcion == 5:
+        editar_tarea()
+    elif opcion == 6:
         break
     else:
         print("Opción no válida.")
 
 print("¡Hasta luego!")
+
+
+
